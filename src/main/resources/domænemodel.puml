@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+class Login
+class Logout
+class CreateUserServlet
+class ViewAccountsServlet
+class ViewOrdersServlet
+class OrderServlet
+class jsp.viewaccounts
+class jsp.order
+class jsp.vieworders
+class jsp.login
+class jsp.createuser
+class jsp.index
+
+jsp.index -up-> Login
+Login -up--> jsp.login
+jsp.login -right-> jsp.index
+jsp.login -down-> jsp.createuser
+jsp.createuser -left-> CreateUserServlet
+CreateUserServlet -left-> jsp.login
+jsp.index -up--> OrderServlet
+OrderServlet -down-> jsp.order
+jsp.index -up--> Logout
+Logout -down-> jsp.index
+jsp.index -up-> ViewAccountsServlet
+ViewAccountsServlet -down--> jsp.viewaccounts
+jsp.index -up-> ViewOrdersServlet
+ViewOrdersServlet -down--> jsp.vieworders
+
+
+
+@enduml
